@@ -1,11 +1,10 @@
 import * as S from './styles';
-/* import { pokemons } from "./mock"; */
 import Card from '../Card';
 import { useAxios } from './useAxios';
+import Loader from "../shared/Loader";
 
 const Table = () => {
-    const { data, loading, error } = useAxios('https://pokeapi.co/api/v2/pokemon/', { limit: 151 });
-    const Loader = () => { return <h1>LOADING</h1> }
+    const { data, loading, error } = useAxios('https://pokeapi.co/api/v2/pokemon/', { limit: 1008 });
     const Error = () => { return <h1>ERROR</h1> }
 
     return (

@@ -21,7 +21,7 @@ export const useAxios = (customUrl, queryParams) => {
             }
         };
         getData();
-    }, [loading, customUrl, queryParams]);
+    }, []);
 
     return { data, loading, error }
 };
