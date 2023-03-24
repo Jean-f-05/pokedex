@@ -27,6 +27,10 @@ p, a{
 a {
     color: var(--red) ;
   }
+
+  li {
+    list-style-type: none;
+  }
 `;
 
 export default GlobalStyle;
