@@ -1,39 +1,48 @@
 export const pokemons = [
     {
         "name": "bulbasaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/1/"
+        "url": "https://pokeapi.co/api/v2/pokemon/1/",
+        "color": "green"
     },
     {
         "name": "ivysaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/2/"
+        "url": "https://pokeapi.co/api/v2/pokemon/2/",
+        "color": "green"
     },
     {
         "name": "venusaur",
-        "url": "https://pokeapi.co/api/v2/pokemon/3/"
+        "url": "https://pokeapi.co/api/v2/pokemon/3/",
+        "color": "green"
     },
     {
         "name": "charmander",
-        "url": "https://pokeapi.co/api/v2/pokemon/4/"
+        "url": "https://pokeapi.co/api/v2/pokemon/4/",
+        "color": "red"
     },
     {
         "name": "charmeleon",
-        "url": "https://pokeapi.co/api/v2/pokemon/5/"
+        "url": "https://pokeapi.co/api/v2/pokemon/5/",
+        "color": "red"
     },
     {
         "name": "charizard",
-        "url": "https://pokeapi.co/api/v2/pokemon/6/"
+        "url": "https://pokeapi.co/api/v2/pokemon/6/",
+        "color": "red"
     },
     {
         "name": "squirtle",
-        "url": "https://pokeapi.co/api/v2/pokemon/7/"
+        "url": "https://pokeapi.co/api/v2/pokemon/7/",
+        "color": "blue"
     },
     {
         "name": "wartortle",
-        "url": "https://pokeapi.co/api/v2/pokemon/8/"
+        "url": "https://pokeapi.co/api/v2/pokemon/8/",
+        "color": "blue"
     },
     {
         "name": "blastoise",
-        "url": "https://pokeapi.co/api/v2/pokemon/9/"
+        "url": "https://pokeapi.co/api/v2/pokemon/9/",
+        "color": "blue"
     },
     {
         "name": "caterpie",

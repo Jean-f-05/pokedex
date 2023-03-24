@@ -1,20 +1,18 @@
 import * as S from './styles';
 import { pokemons } from "./mock"
-import { getId } from '../../utils';
+import Card from '../Card';
 
-const Table = ({ children }) => {
+const Table = () => {
 
     return (
         <S.Wrapper>
-            {pokemons.map((pokemon, id) => (
-                <>
-                    <h1>{pokemon.name}</h1>
-                    <h2>{getId(pokemon.url)}</h2>
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getId(pokemon.url)}.png`} alt={pokemon.name} />
-                </>
-            ))
-            }
-
+            {pokemons.map((pokemon) => (
+                <Card
+                    pokeUrl={pokemon.url}
+                    pokeName={pokemon.name}
+                    pokeColor={pokemon.color}
+                />
+            ))}
         </S.Wrapper >
     );
 };
