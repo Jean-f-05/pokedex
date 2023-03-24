@@ -9,6 +9,10 @@ export const getId = (pokeUrl) => {
         case 38:
             return pokeUrl.slice(-4, -1);
 
+        case 39:
+            return pokeUrl.slice(-5, -1);
+
+        case 40: return pokeUrl.slice(-6, -1)
         default:
             return null
     }
