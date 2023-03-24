@@ -20,3 +20,8 @@ export const Image = styled.img`
 height: 100%;
 width: 100%;
 `;
+
+export const Footer = styled.footer`
+    height: 20vh;
+    width: 100%;
+`
