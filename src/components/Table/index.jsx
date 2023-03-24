@@ -14,6 +14,7 @@ const Table = () => {
                 (error ? <Error /> :
                     data && data.map(pokemon => (
                         <Card
+                            key={pokemon.name}
                             pokeUrl={pokemon.url}
                             pokeName={pokemon.name}
                             pokeColor={pokemon.color}
