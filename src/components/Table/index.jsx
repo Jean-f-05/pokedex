@@ -1,6 +1,6 @@
 import * as S from './styles';
 import Card from '../Card';
-import { useAxios } from './useAxios';
+import { useAxios } from '../Hooks/useAxios';
 import Loader from "../shared/Loader";
 
 /* maxPokemons= 1008 */
