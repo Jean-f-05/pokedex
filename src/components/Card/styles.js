@@ -12,6 +12,9 @@ export const ChevronRight = styled(ChevronRightOutline)`
 ${({ theme }) => css`
     color:${theme.colors.pokemonBlue};
     transition: all 0.2s ease-in;
+    &:hover{
+        cursor: pointer;
+    }
 `}
 `;
 
@@ -60,6 +63,7 @@ ${({ pokeColor }) => css`
 
 export const CardName = styled.h3`
     font-size: 1.8rem;
+    margin-top: 0.5rem;
     text-transform: capitalize;
 `
 export const CardNumber = styled.h4`
