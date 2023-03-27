@@ -1,18 +1,20 @@
 import * as S from './styles';
 import Card from '../Card';
-import { useAxios } from '../Hooks/useAxios';
 import Loader from "../shared/Loader";
+import { useContext } from "react";
+import { PokemonsContext } from "../../pages/main/index"
 
 /* maxPokemons= 1008 */
 
 const Table = () => {
-    let { data, loading, error } = useAxios('https://pokeapi.co/api/v2/pokemonss/', { limit: 90 });
+    let pokemons = useContext(PokemonsContext);
+    let { request: { data, loading, error }, pokemonName } = pokemons;
     let filteredData;
-    const Error = () => { return <h1>ERROR</h1> }
-    const pokeName = "";
+    const Error = () => { return <h1>ERROR</h1> };
 
-    if (data && pokeName) {
-        filteredData = data.filter(pokemon => pokemon.name === pokeName)
+
+    if (data && pokemonName) {
+        filteredData = data.filter(pokemon => pokemon.name === pokemonName)
         data = filteredData;
     }
     return (
