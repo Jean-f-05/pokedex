@@ -1,6 +1,7 @@
 import * as S from './styles';
 import Card from '../Card';
 import Loader from "../shared/Loader";
+import Error from "../shared/Error";
 import { useContext } from "react";
 import { PokemonsContext } from "../../pages/main/index"
 
@@ -10,7 +11,7 @@ const Table = () => {
     let pokemons = useContext(PokemonsContext);
     let { request: { data, loading, error }, pokemonName } = pokemons;
     let filteredData;
-    const Error = () => { return <h1>ERROR</h1> };
+
 
 
     if (data && pokemonName) {
@@ -20,8 +21,8 @@ const Table = () => {
     return (
         <S.Wrapper>
             {loading ? <Loader /> :
-                (error ? <Error /> :
-                    (!data || data.length === 0 ? <h1>Sorry, can't find that pokemon...</h1> :
+                (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
+                    (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
                         data && data.map(pokemon => (
                             <Card
                                 key={pokemon.name}
