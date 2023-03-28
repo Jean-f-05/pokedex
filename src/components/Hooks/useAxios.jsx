@@ -15,12 +15,12 @@ export const useAxios = (customUrl, queryParams) => {
                 setData(response.data.results);
             } catch (error) {
                 setError(error)
-
             } finally {
                 setLoading(false);
             }
         };
         getData();
+        //eslint-disable-next-line
     }, []);
 
     return { request: { data, loading, error } }

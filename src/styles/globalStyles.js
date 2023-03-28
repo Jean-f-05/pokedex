@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 const GlobalStyle = createGlobalStyle`
 
 * {
@@ -10,22 +9,23 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     font-size: 62.5%;
+   
 };
 
 body {
     font-family: 'Lato', sans-serif;
       background-color: #FCE2DB;
-      
+      overflow-x: hidden;
 };
 
 p, a{
     font-size: 2rem;
-    line-height: var(--medium);
+    line-height: 1rem;
     cursor: pointer;
   };
 
 a {
-    color: var(--red) ;
+    color:#FF0000;
   }
 
   li {
