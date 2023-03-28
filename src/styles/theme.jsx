@@ -6,7 +6,8 @@ const theme = {
         pokemonWhite: "#FFFDF9",
         pokemonRed: "#FF0000",
         pokemonPink: "#FCE2DB",
-        pokemonBlue: "#3B4CCA"
+        pokemonBlue: "#3B4CCA",
+        pokemonYellow: "#ffcb05"
 
     },
     fonts: ["sans-serif", "Roboto"],
