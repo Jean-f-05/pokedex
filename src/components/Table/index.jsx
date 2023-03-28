@@ -2,8 +2,9 @@ import * as S from './styles';
 import Card from '../Card';
 import Loader from "../shared/Loader";
 import Error from "../shared/Error";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PokemonsContext } from "../../pages/main/index"
+import CardDetails from '../CardDetails';
 
 /* maxPokemons= 1008 */
 
@@ -11,14 +12,17 @@ const Table = () => {
     let pokemons = useContext(PokemonsContext);
     let { request: { data, loading, error }, pokemonName } = pokemons;
     let filteredData;
-
-
+    const [showModal, setShowModal] = useState(false);
+    const handleModalStatus = () => {
+        setShowModal(!showModal);
+    };
 
     if (data && pokemonName) {
         filteredData = data.filter(pokemon => pokemon.name === pokemonName)
         data = filteredData;
     }
     return (
+
         <S.Wrapper>
             {loading ? <Loader /> :
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
@@ -29,10 +33,12 @@ const Table = () => {
                                 pokeUrl={pokemon.url}
                                 pokeName={pokemon.name}
                                 pokeColor={pokemon.color}
+                                setModal={handleModalStatus}
                             />
                         )))
                 )
             }
+            {showModal && <CardDetails setModal={handleModalStatus} />}
         </S.Wrapper >
     );
 };
