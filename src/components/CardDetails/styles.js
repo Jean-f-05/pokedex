@@ -19,7 +19,8 @@ export const CloseOutlineIcon = styled(CloseOutline)`
 `;
 
 export const CardHeader = styled.h1`
-
+    margin-left: 1rem;
+    text-transform: uppercase;
 `;
 
 export const CardContent = styled.div`
@@ -28,7 +29,8 @@ export const CardContent = styled.div`
 `
 
 export const CardImage = styled.img`
-
+    max-width: 15rem;
+    max-height: 15rem;
 `
 
 export const CardDetails = styled.ul`
@@ -38,3 +40,11 @@ export const CardDetails = styled.ul`
     justify-content: space-between;
     flex: 2;
 `;
+
+export const CardList = styled.li`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+`
