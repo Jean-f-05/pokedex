@@ -8,11 +8,10 @@ export const useAxios = (customUrl, queryParams) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-
         const getData = async () => {
             try {
                 const response = await axios.get(customUrl, { params: queryParams });
-                setData(response.data.results);
+                setData(response.data);
             } catch (error) {
                 setError(error)
             } finally {
