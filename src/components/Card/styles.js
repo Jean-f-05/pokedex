@@ -31,8 +31,8 @@ ${({ pokeColor }) => css`
     background-color: lightblue;
     border: 0.5rem solid ${pokeColor};
     border-radius: 0.5rem;
-    counter-increment: number;
-    
+    position: relative;
+
     &:hover{
     ${ChevronRight}{
         transform: translateX(0.4rem);
@@ -42,22 +42,6 @@ ${({ pokeColor }) => css`
         filter: grayscale(0);
     };
 };
-
-&:before {
-        position: absolute;
-        content: "00" counter(number);
-        font-size: 1.1rem;
-        font-weight: 600;
-    };
-
-    &:nth-child(n+10):before {
-        content: "0" counter(number);
-    };
-   
-    &:nth-child(n+100):before {
-        content: "" counter(number);
-    };
-
 `}`;
 
 
@@ -69,8 +53,9 @@ export const CardName = styled.h3`
 export const CardNumber = styled.h4`
     font-size: 1.2rem;
     font-weight: 600;
-
-    
+    position: absolute;
+    top:0.5rem;
+    left: 0.5rem;
    `;
 
 

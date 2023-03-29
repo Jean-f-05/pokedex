@@ -1,6 +1,5 @@
 import * as S from './styles';
-import { getId } from '../../utils';
-
+import { getId, stdNumber } from '../../utils';
 
 const Card = ({ pokeUrl, pokeName, pokeColor, setModal }) => {
     const id = getId(pokeUrl);
@@ -9,9 +8,9 @@ const Card = ({ pokeUrl, pokeName, pokeColor, setModal }) => {
     return (
         <S.CardElement key={id} pokeColor={pokeColor}>
             <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={pokeName} />
-            <S.CardNumber></S.CardNumber>
+            <S.CardNumber>{stdNumber(id)}</S.CardNumber>
             <S.CardName>{pokeName}</S.CardName>
-            <S.AnchorWrapper onClick={setModal}>
+            <S.AnchorWrapper onClick={() => { setModal(id) }}>
                 <S.Anchor href="#">Know more</S.Anchor>
                 <S.ChevronRight size={32} color="#3B4CCA" />
             </S.AnchorWrapper>
