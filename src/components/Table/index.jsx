@@ -3,7 +3,7 @@ import Card from '../Card';
 import Loader from "../shared/Loader";
 import Error from "../shared/Error";
 import { useContext, useState } from "react";
-import { PokemonsContext } from "../../pages/main/index"
+import { PokemonsContext } from "../../pages/main/index";
 import CardDetails from '../CardDetails';
 
 /* maxPokemons= 1008 */
@@ -13,10 +13,14 @@ const Table = () => {
     let { request: { data, loading, error }, pokemonName } = pokemons;
     let filteredData;
     const [showModal, setShowModal] = useState(false);
-    const handleModalStatus = () => {
+    const handleModalStatus = (id) => {
         setShowModal(!showModal);
-    };
+        pokemons.currentID = id;
 
+    };
+    if (data) {
+        data = data[0];
+    }
     if (data && pokemonName) {
         filteredData = data.filter(pokemon => pokemon.name === pokemonName)
         data = filteredData;

@@ -6,7 +6,11 @@ import { createContext, useState } from 'react';
 export const PokemonsContext = createContext({});
 
 const Main = () => {
-    let { request } = useAxios('https://pokeapi.co/api/v2/pokemon/', { limit: 151 });
+    let { request } = useAxios('https://pokeapi.co/api/v2/generation/1');
+    if (request.data) {
+        request.data = [request.data.pokemon_species];
+    }
+
     const [pokemonName, setPokemonName] = useState("");
     return (
         <S.Wrapper>
