@@ -47,7 +47,7 @@ export const CardDetails = styled.ul`
     gap: 0.4rem;
 `;
 
-export const CardList = styled.li`
+export const CardList = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,5 +62,6 @@ export const CardListHeader = styled.h2`
 `
 
 export const CardListDetail = styled.h2`
+  text-transform: uppercase;
 
 `
