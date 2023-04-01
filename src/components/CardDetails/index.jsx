@@ -23,7 +23,7 @@ const CardDetails = ({ setModal }) => {
     let { request: { data, loading, error } } = useAxios(`https://pokeapi.co/api/v2/pokemon/${currentID}`)
     if (data) {
         pokemons.pokemon = data;
-        console.log(pokemons.pokemon.stats)
+        console.log(pokemons.pokemon)
     };
 
     return (
@@ -36,7 +36,7 @@ const CardDetails = ({ setModal }) => {
                             <S.CloseOutlineIcon size={32} color="#FF0000" onClick={setModal} />
                             <S.CardHeader>{pokemons.pokemon.name}</S.CardHeader>
                             <S.CardContent>
-                                <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemons.pokemon.id}.svg`} alt="pikachu" />
+                                <S.CardImage src={pokemons.pokemon.sprites.other.dream_world.front_default ? pokemons.pokemon.sprites.other.dream_world.front_default : pokemons.pokemon.sprites.other.home.front_default} alt={pokemons.pokemon.name} />
                                 <S.CardDetails>
                                     <S.CardList>
                                         <CardListElement label="Id" description={pokemons.pokemon.id} />
