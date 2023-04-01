@@ -1,11 +1,16 @@
 import styled, { css } from 'styled-components';
 import { CloseOutline } from "@styled-icons/evaicons-outline/";
+import { borderColors } from './borderColors';
+
 
 export const Wrapper = styled.div`
-${({ theme }) => css`
+${({ theme, border }) => css`
     background-color: inherit;
-    border: inset 0.8rem yellow;
     padding: 1rem;
+    border-style: inset;
+    border-width: 0.8rem;
+
+    ${border && borderColors[border]}
 `}
 `;
 
@@ -25,7 +30,8 @@ export const CardHeader = styled.h1`
 
 export const CardContent = styled.div`
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
+    align-items: center;
 `
 
 export const CardImage = styled.img`
@@ -38,7 +44,7 @@ export const CardDetails = styled.ul`
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    flex: 2;
+    gap: 0.4rem;
 `;
 
 export const CardList = styled.li`
@@ -47,4 +53,14 @@ export const CardList = styled.li`
     align-items: center;
     width: 100%;
     justify-content: space-between;
+`
+
+export const CardListHeader = styled.h2`
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 800;
+`
+
+export const CardListDetail = styled.h2`
+
 `

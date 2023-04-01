@@ -7,13 +7,23 @@ import { PokemonsContext } from "../../pages/main/index";
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
+const CardListElement = ({ label, description, value }) => {
+    return (
+        <S.CardList>
+            <S.CardListHeader>{label}</S.CardListHeader>
+            {value && <StatusBar description={label} value={value} />}
+            {description && <S.CardListDetail>{description}</S.CardListDetail>}
+        </S.CardList>
+    )
+};
+
 const CardDetails = ({ setModal }) => {
     let pokemons = useContext(PokemonsContext);
     let { currentID } = pokemons;
     let { request: { data, loading, error } } = useAxios(`https://pokeapi.co/api/v2/pokemon/${currentID}`)
     if (data) {
         pokemons.pokemon = data;
-        console.log(pokemons.pokemon)
+        console.log(pokemons.pokemon.stats)
     };
 
     return (
@@ -22,39 +32,30 @@ const CardDetails = ({ setModal }) => {
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
                     (!data ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
                         data &&
-                        <S.Wrapper>
+                        <S.Wrapper border={pokemons.pokemon.types[0].type.name}>
                             <S.CloseOutlineIcon size={32} color="#FF0000" onClick={setModal} />
                             <S.CardHeader>{pokemons.pokemon.name}</S.CardHeader>
                             <S.CardContent>
                                 <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemons.pokemon.id}.svg`} alt="pikachu" />
                                 <S.CardDetails>
                                     <S.CardList>
-                                        <h2>ID: {pokemons.pokemon.id}</h2>
+                                        <CardListElement label="Id" description={pokemons.pokemon.id} />
                                     </S.CardList>
                                     <S.CardList>
-                                        <h2>Type: {pokemons.pokemon.types[0].type.name}</h2>
+                                        <CardListElement label="Type" description={pokemons.pokemon.types[0].type.name} />
                                     </S.CardList>
                                     <S.CardList>
-                                        <h2>Height: {pokemons.pokemon.height}</h2>
+                                        <CardListElement label="Height" description={pokemons.pokemon.height} />
                                     </S.CardList>
                                     <S.CardList>
-                                        <h2>Weight: {pokemons.pokemon.weight}</h2>
+                                        <CardListElement label="Weight" description={pokemons.pokemon.weight} />
                                     </S.CardList>
-                                    <S.CardList>
-                                        <h2>HP: </h2> <StatusBar hp="35" />
-                                    </S.CardList>
-                                    <S.CardList>
-                                        <h2>Attack:</h2> <StatusBar att="55" />
-                                    </S.CardList>
-                                    <S.CardList>
-                                        <h2>Defense:</h2><StatusBar def="40" />
-                                    </S.CardList>
-                                    <S.CardList>
-                                        <h2>Speed:</h2> <StatusBar spd="90" />
-                                    </S.CardList>
-
+                                    {pokemons.pokemon.stats.map(stat => (
+                                        <S.CardList key={pokemons.pokemon.name + "_" + pokemons.pokemon.id}>
+                                            <CardListElement label={stat.stat.name} value={stat.base_stat} />
+                                        </S.CardList>
+                                    ))}
                                 </S.CardDetails>
-
                             </S.CardContent>
                         </S.Wrapper>
                     )
