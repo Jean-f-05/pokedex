@@ -2,25 +2,25 @@ import styled, { css } from 'styled-components';
 
 
 const barConfig = {
-    hp: (hp) => css`        
-        width: ${hp * 100 / 255}%;    
+    hp: (value) => css`        
+        width: ${value * 100 / 255}%;    
     `,
-
-    att: (att) => css`
-    width: ${att * 100 / 190}%;    
+    attack: (value) => css`
+    width: ${value * 100 / 190}%;    
     `,
-
-    def: (def) => css`
-    width: ${def * 100 / 230}%;    
+    defense: (value) => css`
+    width: ${value * 100 / 250}%;    
     `,
-
-    spd: (spd) => css`
-    width: ${spd * 100 / 230}%;    
+    'special-attack': (value) => css`
+         width: ${value * 100 / 194}%;   
+    `,
+    'special-defense': () => css`
+    width: ${50 * 100 / 250}%;    
+`,
+    speed: (value) => css`
+    width: ${value * 100 / 200}%;    
     `,
 }
-
-
-
 
 export const Wrapper = styled.div`
     height: 1rem;
@@ -29,11 +29,11 @@ export const Wrapper = styled.div`
     border-radius: 15px;
     position: relative;
     background-color: pink;
-    margin-right: 2rem;
+    margin-left:1rem
 `;
 
 export const Filledbar = styled.div`
-${({ hp, att, def, spd }) => css`
+${({ description, value }) => css`
 
     position: absolute;
     top: 0;
@@ -42,9 +42,6 @@ ${({ hp, att, def, spd }) => css`
     background-color: red;
     border-radius: 15px;
 
-    ${hp && barConfig.hp(hp)}
-    ${att && barConfig.att(att)}
-    ${def && barConfig.def(def)}
-    ${spd && barConfig.spd(spd)}
+    ${description && barConfig[description](value)};
 `}
 `;
