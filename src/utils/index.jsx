@@ -29,3 +29,7 @@ export const stdNumber = (pokeNumber) => {
             return pokeNumber
     }
 }
+
+export const sortByNumber = (data) => {
+    return data.sort((a, b) => getId(a.url) - getId(b.url));
+}
