@@ -29,7 +29,7 @@ export const CardHeader = styled.h1`
     margin-left: 1rem;
     text-transform: uppercase;
     margin-bottom: 1.8rem;
-    text-align:center
+    text-align:center;
 `;
 
 export const CardContent = styled.div`
