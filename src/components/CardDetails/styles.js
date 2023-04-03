@@ -5,12 +5,9 @@ import { borderColors } from './borderColors';
 
 export const Wrapper = styled.div`
 ${({ theme, border }) => css`
-    background-color: inherit;
+    background-color: #fff;
     padding: 1rem;
-    border-style: inset;
-    border-width: 0.8rem;
-
-    ${border && borderColors[border]}
+    border: inset 0.8rem ${border && borderColors[border]}
 `}
 `;
 

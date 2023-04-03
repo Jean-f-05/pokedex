@@ -7,11 +7,11 @@ import { PokemonsContext } from "../../pages/main/index";
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
-const CardListElement = ({ label, description, value }) => {
+const CardListElement = ({ label, description, value, color }) => {
     return (
         <S.CardList>
             <S.CardListHeader>{label}</S.CardListHeader>
-            {value && <StatusBar description={label} value={value} />}
+            {value && <StatusBar description={label} value={value} color={color} />}
             {description && <S.CardListDetail>{description}</S.CardListDetail>}
         </S.CardList>
     )
@@ -51,8 +51,13 @@ const CardDetails = ({ setModal }) => {
                                         <CardListElement label="Weight" description={pokemons.pokemon.weight} />
                                     </S.CardList>
                                     {pokemons.pokemon.stats.map(stat => (
-                                        <S.CardList key={pokemons.pokemon.name + "_" + pokemons.pokemon.id}>
-                                            <CardListElement label={stat.stat.name} value={stat.base_stat} />
+                                        <S.CardList
+                                            key={pokemons.pokemon.name + "_" + pokemons.pokemon.id}>
+                                            <CardListElement
+                                                label={stat.stat.name}
+                                                value={stat.base_stat}
+                                                color={pokemons.pokemon.types[0].type.name}
+                                            />
                                         </S.CardList>
                                     ))}
                                 </S.CardDetails>

@@ -1,10 +1,10 @@
 import * as S from './styles';
 
-const StatusBar = ({ description, value }) => {
+const StatusBar = ({ description, value, color }) => {
 
     return (
-        <S.Wrapper>
-            <S.Filledbar description={description} value={value}></S.Filledbar>
+        <S.Wrapper color={color}>
+            <S.Filledbar description={description} value={value} color={color}></S.Filledbar>
         </S.Wrapper>
     );
 };
