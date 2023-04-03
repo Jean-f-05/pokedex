@@ -33,10 +33,13 @@ const CardDetails = ({ setModal }) => {
                     (!data ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
                         data &&
                         <S.Wrapper border={pokemons.pokemon.types[0].type.name}>
-                            <S.CloseOutlineIcon size={32} color="#FF0000" onClick={setModal} />
-                            <S.CardHeader>{pokemons.pokemon.name}</S.CardHeader>
+                            <S.CloseOutlineIcon size={36} color="#FF0000" onClick={setModal} />
+
                             <S.CardContent>
-                                <S.CardImage src={pokemons.pokemon.sprites.other.dream_world.front_default ? pokemons.pokemon.sprites.other.dream_world.front_default : pokemons.pokemon.sprites.other.home.front_default} alt={pokemons.pokemon.name} />
+                                <S.CardMain>
+                                    <S.CardHeader>{pokemons.pokemon.name}</S.CardHeader>
+                                    <S.CardImage src={pokemons.pokemon.sprites.other.dream_world.front_default ? pokemons.pokemon.sprites.other.dream_world.front_default : pokemons.pokemon.sprites.other.home.front_default} alt={pokemons.pokemon.name} />
+                                </S.CardMain>
                                 <S.CardDetails>
                                     <S.CardList>
                                         <CardListElement label="Id" description={pokemons.pokemon.id} />

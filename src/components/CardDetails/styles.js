@@ -6,9 +6,14 @@ import { borderColors } from './borderColors';
 export const Wrapper = styled.div`
 ${({ theme, border }) => css`
     background-color: #fff;
-    padding: 1rem;
+    padding: 2.8rem 1rem;
     border: inset 0.8rem ${border && borderColors[border]}
 `}
+`;
+
+
+export const CardMain = styled.div`
+
 `;
 
 export const CloseOutlineIcon = styled(CloseOutline)`
@@ -23,13 +28,21 @@ export const CloseOutlineIcon = styled(CloseOutline)`
 export const CardHeader = styled.h1`
     margin-left: 1rem;
     text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    text-align:center
 `;
 
 export const CardContent = styled.div`
     display: flex;
+    flex-direction:row;
     gap: 2rem;
-    align-items: center;
-`
+    align-items: flex-start;
+
+    @media (max-width: 400px) {
+    flex-direction: column;
+    align-items:center;
+  }
+    `
 
 export const CardImage = styled.img`
     max-width: 15rem;
@@ -56,6 +69,8 @@ export const CardListHeader = styled.h2`
     text-transform: uppercase;
     font-size: 1.2rem;
     font-weight: 800;
+    
+    white-space: nowrap;
 `
 
 export const CardListDetail = styled.h2`
