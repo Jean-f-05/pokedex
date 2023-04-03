@@ -15,7 +15,10 @@ const SearchBar = () => {
         evt.preventDefault();
         if (evt.target.value.length === 0) {
             pokemons.setPokemonName("")
+
         }
+        return pokemons.setPokemonName(evt.target.value)
+
     };
 
     return (
