@@ -6,12 +6,12 @@ const Card = ({ pokeUrl, pokeName, pokeColor, setModal }) => {
 
 
     return (
-        <S.CardElement key={id} pokeColor={pokeColor}>
+        <S.CardElement key={id} pokeColor={pokeColor} onClick={() => { setModal(id) }}>
             <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={pokeName} />
             <S.CardNumber>{stdNumber(id)}</S.CardNumber>
             <S.CardName>{pokeName}</S.CardName>
-            <S.AnchorWrapper onClick={() => { setModal(id) }}>
-                <S.Anchor href="#">Know more</S.Anchor>
+            <S.AnchorWrapper >
+                <S.Anchor>Know more</S.Anchor>
                 <S.ChevronRight size={32} color="#3B4CCA" />
             </S.AnchorWrapper>
         </S.CardElement>

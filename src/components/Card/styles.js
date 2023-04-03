@@ -32,6 +32,7 @@ ${({ pokeColor }) => css`
     border: 0.5rem solid ${pokeColor};
     border-radius: 0.5rem;
     position: relative;
+    cursor: pointer;
 
     &:hover{
     ${ChevronRight}{
@@ -59,12 +60,15 @@ export const CardNumber = styled.h4`
    `;
 
 
-export const Anchor = styled.a`
+export const Anchor = styled.div`
     ${({ theme }) => css`
     font-size: 1.4rem;
     font-weight: 600;
     text-decoration: none;
     color:${theme.colors.pokemonBlue}; 
+    &:hover{
+        cursor: pointer;
+    }
     `}
 `
 
