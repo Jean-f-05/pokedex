@@ -11,39 +11,52 @@ import CardDetails from '../CardDetails';
 const Table = () => {
     let pokemons = useContext(PokemonsContext);
     let { request: { data, loading, error }, pokemonName } = pokemons;
-    let filteredData;
+
     const [showModal, setShowModal] = useState(false);
     const handleModalStatus = (id) => {
         setShowModal(!showModal);
         pokemons.currentID = id;
 
     };
+    function filterItems(arr, query) {
+        return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
+    }
+
     if (data) {
         data = data[0];
     }
     if (data && pokemonName) {
-        filteredData = data.filter(pokemon => pokemon.name === pokemonName)
-        data = filteredData;
+        const filteredItems = filterItems(data, pokemonName);
+        data = filteredItems;
     }
     return (
+        <>
+            <S.Wrapper>
 
-        <S.Wrapper>
-            {loading ? <Loader /> :
-                (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
-                    (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
-                        data && data.map(pokemon => (
-                            <Card
-                                key={pokemon.name}
-                                pokeUrl={pokemon.url}
-                                pokeName={pokemon.name}
-                                pokeColor={pokemon.color}
-                                setModal={handleModalStatus}
-                            />
-                        )))
-                )
-            }
-            {showModal && <CardDetails setModal={handleModalStatus} />}
-        </S.Wrapper >
+                {loading ? <Loader /> :
+                    (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
+                        (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
+                            data && data.map(pokemon => (
+                                <Card
+                                    key={pokemon.name}
+                                    pokeUrl={pokemon.url}
+                                    pokeName={pokemon.name}
+                                    pokeColor={pokemon.color}
+                                    setModal={handleModalStatus}
+                                />
+                            )))
+                    )
+                }
+                {showModal && <CardDetails setModal={handleModalStatus} />}
+            </S.Wrapper >
+            <S.Filters>
+                <ul>
+                    <li>
+                        <h3>Filter this:</h3>
+                    </li>
+                </ul>
+            </S.Filters>
+        </>
     );
 };
 
