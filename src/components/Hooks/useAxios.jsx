@@ -20,7 +20,7 @@ export const useAxios = (customUrl, queryParams) => {
         };
         getData();
         //eslint-disable-next-line
-    }, []);
+    }, [customUrl]);
 
     return { request: { data, loading, error } }
 };
