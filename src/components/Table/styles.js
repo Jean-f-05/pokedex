@@ -13,5 +13,8 @@ export const Wrapper = styled.div`
         justify-content: space-around;
         row-gap: 1.5rem;
         counter-reset: number;
+        position: relative;
+       /*  z-index: 50; */
 `}`;
+
 

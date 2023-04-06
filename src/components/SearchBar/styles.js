@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
-    ${({ theme }) => css`
-`}`;
+  `;
 
 export const InputWrapper = styled.form`
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `
 
 export const Label = styled.label`

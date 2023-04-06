@@ -1,6 +1,6 @@
 import * as S from './styles';
 /* import { PokeBall } from '../../assets/svg/PokeBall' */
-const Navbar = ({ children }) => {
+const Navbar = () => {
     return (
         <S.Wrapper>
             <S.ListWrapper>

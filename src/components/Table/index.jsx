@@ -30,35 +30,25 @@ const Table = () => {
         data = filteredItems;
     }
     return (
-        <>
-            <S.Wrapper>
 
-                {loading ? <Loader /> :
-                    (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
-                        (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
-                            data && data.map(pokemon => (
-                                <Card
-                                    key={pokemon.name}
-                                    pokeUrl={pokemon.url}
-                                    pokeName={pokemon.name}
-                                    pokeColor={pokemon.color}
-                                    setModal={handleModalStatus}
-                                />
-                            )))
-                    )
-                }
-                {showModal && <CardDetails setModal={handleModalStatus} />}
-            </S.Wrapper >
-            <S.Filters>
-                <ul>
-                    <li>
-                        <h3>Filter this:</h3>
-                    </li>
-                </ul>
-            </S.Filters>
-        </>
+        <S.Wrapper>
+            {loading ? <Loader /> :
+                (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
+                    (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :
+                        data && data.map(pokemon => (
+                            <Card
+                                key={pokemon.name}
+                                pokeUrl={pokemon.url}
+                                pokeName={pokemon.name}
+                                pokeColor={pokemon.color}
+                                setModal={handleModalStatus}
+                            />
+                        )))
+                )
+            }
+            {showModal && <CardDetails setModal={handleModalStatus} />}
+        </S.Wrapper >
     );
 };
 
 export default Table;
-
