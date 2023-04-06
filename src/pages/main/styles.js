@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
+import { FilterWrapper } from "../../components/Filter/styles"
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.main`
     ${({ theme }) => css`
  background-color: ${theme.colors.pokemonPink};
  display: flex;
@@ -11,14 +12,22 @@ export const Wrapper = styled.div`
 
 
 export const ImageWrapper = styled.div`
-height: 20rem;
-width: 20rem;
-margin-top: -2.2rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+`;
+
+export const LeftFilters = styled.div`
+    ${FilterWrapper}:nth-child(n+2)  {
+        margin-top:0;
+  }
 `;
 
 export const Image = styled.img`
-height: 100%;
-width: 100%;
+height: 25rem;
+width: 25rem;
+margin-top: -2.2rem;
 `;
 
 export const Footer = styled.footer`
