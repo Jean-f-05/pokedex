@@ -5,6 +5,7 @@ import { useAxios } from '../../components/Hooks/useAxios';
 import { createContext, useState } from 'react';
 import { sortByNumber } from "../../utils/index"
 import Filter from '../../components/Filter';
+import { generations } from "./generations";
 export const PokemonsContext = createContext({});
 
 const Main = () => {
@@ -26,22 +27,13 @@ const Main = () => {
         <S.Wrapper>
             <PokemonsContext.Provider value={{ request, setPokemonName, pokemonName }}>
                 <S.ImageWrapper>
-                    <S.LeftFilters>
-                        <Filter generation={setGeneration} text="GENERATIONS" radio={[
-                            { name: "Kanto", value: "I" },
-                            { name: "Johto", value: "II" },
-                            { name: "Hoenn", value: "III" },
-                            { name: "Sinnoh", value: "IV" },
-                            { name: "Unova", value: "V" },
-                            { name: "Kalos", value: "VI" },
-                            { name: "Alola", value: "VII" },
-                            { name: "Galar", value: "VIII" },
-                            { name: "Paldea", value: "IX" }
-                        ]}
-                        />
-                    </S.LeftFilters>
+                    <S.FilterWrapper order="2">
+                        <Filter generation={setGeneration} text="GENERATIONS" radio={generations} />
+                    </S.FilterWrapper>
                     <S.Image src={require("../../assets/imgs/poke2.png")} alt="Round image containing several pokemons" />
-                    <Filter generation={setGeneration} />
+                    <S.FilterWrapper order="3">
+                        <Filter generation={setGeneration} />
+                    </S.FilterWrapper>
                 </S.ImageWrapper>
                 <SearchBar />
                 <Table />

@@ -4,42 +4,50 @@ export const FilterWrapper = styled.div`
     display:flex;
     flex-direction:column;
     margin-top: 1rem;
-    min-width: 14rem;
+    position: absolute;
+
+    @media (max-width: 600px) {
+        position: unset;
+  }
 `;
 
 export const FilterHeader = styled.div`
+${({ theme }) => css`
     display: flex;
     flex-direction:row;
     align-items: center;  
     cursor: pointer;  
     gap: 0.5rem;
-    background-color: red;
-    border: 2px solid white;
+    background-color: ${theme.colors.pokemonRed};
+    border: 2px solid ${theme.colors.pokemonRed};
     padding: 0 0.5rem;
+`}
 `;
 
 
 export const FilterText = styled.h3`
+${({ theme }) => css`
     font-size: 1.4rem;
-    display:inline-block;
-    
-    color: white;
-`
+    display: inline-block;    
+    color: ${theme.colors.pokemonWhite};
+`}
+`;
+
 export const FilterBody = styled.div`
-display: none;
-${({ active }) => active && css`
-    display: flex;
-    flex-direction:column;
-    align-items:center;
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    padding-top: 0.5rem;
+    display:none;
+
+    ${({ active, theme }) => active && css`
+    border-left: 2px solid ${theme.colors.pokemonRed};
+    border-right: 2px solid ${theme.colors.pokemonRed};
+    border-bottom: 2px solid ${theme.colors.pokemonRed};
+    padding: 0.8rem;
+    background-color: ${theme.colors.pokemonWhite};
+    display: block;
 `}
 `
 
 export const FilterGenWrapper = styled.ul`
-
+    
 `;
 
 export const FilterInput = styled.li`
@@ -49,8 +57,9 @@ justify-content: space-between;
 `;
 
 export const Label = styled.label`
-    font-size:1.2rem;
+${({ theme }) => css`
+    font-size:1.3rem;
     font-weight: 500;
-    color:red;
-    margin-right: 2rem;
+    color:${theme.colors.pokemonRed};
+`}
 `
