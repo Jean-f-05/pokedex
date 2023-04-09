@@ -16,21 +16,29 @@ const Table = () => {
     const handleModalStatus = (id) => {
         setShowModal(!showModal);
         pokemons.currentID = id;
-
     };
+
     function filterItems(arr, query) {
         return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
     }
 
-    if (data) {
+    if (data && data.length === 1) {
+        console.log("DATA", data.length)
         data = data[0];
     }
+
+    if (data && data.length === 2) {
+        console.log("DATA", data.length)
+        data = data[0];
+    }
+
     if (data && pokemonName) {
         const filteredItems = filterItems(data, pokemonName);
         data = filteredItems;
-    }
-    return (
+        console.log("FILTROS", data)
+    };
 
+    return (
         <S.Wrapper>
             {loading ? <Loader /> :
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
