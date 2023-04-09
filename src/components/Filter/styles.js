@@ -46,7 +46,7 @@ export const FilterBody = styled.div`
 `}
 `
 
-export const FilterGenWrapper = styled.ul`
+export const FilterRadioWrapper = styled.ul`
     
 `;
 
