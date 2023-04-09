@@ -23,7 +23,6 @@ const CardDetails = ({ setModal }) => {
     let { request: { data, loading, error } } = useAxios(`https://pokeapi.co/api/v2/pokemon/${currentID}`)
     if (data) {
         pokemons.pokemon = data;
-        console.log(pokemons.pokemon)
     };
 
     return (
