@@ -6,21 +6,29 @@ import { createContext, useState } from 'react';
 import { sortByNumber } from "../../utils/index"
 import Filter from '../../components/Filter';
 import { generations } from "./generations";
+import { types } from "./types";
 export const PokemonsContext = createContext({});
 
 const Main = () => {
-    const [generation, setGeneration] = useState("1")
+    const [type, setType] = useState(null);
+    const [generation, setGeneration] = useState("1");
     let { request } = useAxios(`https://pokeapi.co/api/v2/generation/${generation}`);
+    let { request: requestType } = useAxios(`https://pokeapi.co/api/v2/type/${type}`);
+
+
     if (request.data) {
         request.data = [request.data.pokemon_species];
-        //SORT BY TEXT
-        //request.data[0].sort((a, b) => a.name.localeCompare(b.name)); 
-
-        //SORT BY NUMBER
         sortByNumber(request.data[0]);
-        /* request.data[0].sort((a, b) => getId(a.url) - getId(b.url)); */
     }
 
+    if (type && requestType.data) {
+        const newPokemons = requestType.data.pokemon.map(pokemon => ({
+            name: pokemon.pokemon.name,
+            url: pokemon.pokemon.url
+        }));
+
+        request.data.push(newPokemons);
+    }
     const [pokemonName, setPokemonName] = useState("");
 
     return (
@@ -28,11 +36,11 @@ const Main = () => {
             <PokemonsContext.Provider value={{ request, setPokemonName, pokemonName }}>
                 <S.ImageWrapper>
                     <S.FilterWrapper order="2">
-                        <Filter generation={setGeneration} text="GENERATIONS" radio={generations} />
+                        <Filter value={setGeneration} text="GENERATIONS" radio={generations} />
                     </S.FilterWrapper>
                     <S.Image src={require("../../assets/imgs/poke2.png")} alt="Round image containing several pokemons" />
                     <S.FilterWrapper order="3">
-                        <Filter generation={setGeneration} />
+                        <Filter value={setType} text="TYPES" radio={types} />
                     </S.FilterWrapper>
                 </S.ImageWrapper>
                 <SearchBar />
