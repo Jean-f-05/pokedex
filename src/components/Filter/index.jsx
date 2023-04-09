@@ -2,29 +2,29 @@ import { useState } from 'react';
 import * as S from "./styles";
 import { PlusOutline, MinusOutline } from "@styled-icons/evaicons-outline";
 
-
-const FilterEl = ({ setGeneration, radio }) => {
+const FilterEl = ({ setValue, radio }) => {
     const handleFormChange = (evt) => {
-        setGeneration(evt.target.value)
+        setValue(evt.target.value)
     }
+
     return (
         <>
-            < S.FilterGenWrapper >
+            < S.FilterRadioWrapper >
                 {radio &&
                     radio.map((gen, i) => {
                         return (
                             <S.FilterInput key={`${gen.name}`}>
-                                <S.Label htmlFor={gen.name}>Gen {gen.value} ({gen.name.toUpperCase()})</S.Label>
+                                <S.Label htmlFor={gen.name}>{gen.name.toUpperCase()}</S.Label>
                                 <input defaultChecked={i === 0} type="radio" id={gen.name} name="generation" value={`${i + 1}`} onChange={handleFormChange} />
                             </S.FilterInput>)
                     })
                 }
-            </S.FilterGenWrapper >
+            </S.FilterRadioWrapper >
         </>)
 
 };
 
-const Filter = ({ generation, text, radio }) => {
+const Filter = ({ value, text, radio }) => {
     const handleClick = () => {
         return setIsOpen(!isOpen)
     }
@@ -40,7 +40,7 @@ const Filter = ({ generation, text, radio }) => {
                     <PlusOutline size={24} color="white" />}
             </S.FilterHeader>
             {<S.FilterBody active={isOpen}>
-                <FilterEl setGeneration={generation} radio={radio} />
+                <FilterEl setValue={value} radio={radio} />
             </S.FilterBody>}
 
         </S.FilterWrapper >
