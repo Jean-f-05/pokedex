@@ -13,7 +13,10 @@ ${({ theme, border }) => css`
 
 
 export const CardMain = styled.div`
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const CloseOutlineIcon = styled(CloseOutline)`
@@ -26,7 +29,6 @@ export const CloseOutlineIcon = styled(CloseOutline)`
 `;
 
 export const CardHeader = styled.h1`
-    margin-left: 1rem;
     text-transform: uppercase;
     margin-bottom: 1.8rem;
     text-align:center;
