@@ -5,6 +5,7 @@ export const FilterWrapper = styled.div`
     flex-direction:column;
     margin-top: 1rem;
     position: absolute;
+    z-index: 8;
 
     @media (max-width: 600px) {
         position: unset;
@@ -17,10 +18,11 @@ ${({ theme }) => css`
     flex-direction:row;
     align-items: center;  
     cursor: pointer;  
-    gap: 0.5rem;
+    gap: 1.5rem;
     background-color: ${theme.colors.pokemonRed};
     border: 2px solid ${theme.colors.pokemonRed};
     padding: 0 0.5rem;
+    text-transform: uppercase;
 `}
 `;
 
