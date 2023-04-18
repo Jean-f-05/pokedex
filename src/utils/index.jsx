@@ -1,21 +1,6 @@
 export const getId = (pokeUrl) => {
-    switch (pokeUrl.length) {
-        case 44:
-            return pokeUrl.slice(-2, -1);
-
-        case 45:
-            return pokeUrl.slice(-3, -1);
-
-        case 46:
-            return pokeUrl.slice(-4, -1);
-
-        case 47:
-            return pokeUrl.slice(-5, -1);
-
-        case 48: return pokeUrl.slice(-6, -1)
-        default:
-            return null
-    }
+    var id = pokeUrl.substring(pokeUrl.length - 10).replace(/[^0-9]/g, '');
+    return id
 }
 
 export const stdNumber = (pokeNumber) => {
@@ -32,4 +17,8 @@ export const stdNumber = (pokeNumber) => {
 
 export const sortByNumber = (data) => {
     return data.sort((a, b) => getId(a.url) - getId(b.url));
+}
+
+export const filterItems = (arr, query) => {
+    return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
 }
