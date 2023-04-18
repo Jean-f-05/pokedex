@@ -5,37 +5,21 @@ import Error from "../shared/Error";
 import { useContext, useState } from "react";
 import { PokemonsContext } from "../../pages/main/index";
 import CardDetails from '../CardDetails';
+import { filterItems } from "../../utils/index";
 
-/* maxPokemons= 1008 */
 
 const Table = () => {
     let pokemons = useContext(PokemonsContext);
     let { request: { data, loading, error }, pokemonName } = pokemons;
-
     const [showModal, setShowModal] = useState(false);
     const handleModalStatus = (id) => {
         setShowModal(!showModal);
         pokemons.currentID = id;
     };
 
-    function filterItems(arr, query) {
-        return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
-    }
-
-    if (data && data.length === 1) {
-        console.log("DATA", data.length)
-        data = data[0];
-    }
-
-    if (data && data.length === 2) {
-        console.log("DATA", data.length)
-        data = data[0];
-    }
-
     if (data && pokemonName) {
         const filteredItems = filterItems(data, pokemonName);
         data = filteredItems;
-        console.log("FILTROS", data)
     };
 
     return (
@@ -48,7 +32,6 @@ const Table = () => {
                                 key={pokemon.name}
                                 pokeUrl={pokemon.url}
                                 pokeName={pokemon.name}
-                                pokeColor={pokemon.color}
                                 setModal={handleModalStatus}
                             />
                         )))
