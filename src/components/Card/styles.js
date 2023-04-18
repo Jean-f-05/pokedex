@@ -26,10 +26,10 @@ export const CardImage = styled.img`
 `
 
 export const CardElement = styled.li`
-${({ pokeColor }) => css`
+${() => css`
     padding: 1rem ;
     background-color: lightblue;
-    border: 0.5rem solid ${pokeColor};
+    border: 0.5rem solid black;
     border-radius: 0.5rem;
     position: relative;
     cursor: pointer;
