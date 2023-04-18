@@ -20,8 +20,10 @@ const CardListElement = ({ label, description, value, color }) => {
 const CardDetails = ({ setModal }) => {
     let pokemons = useContext(PokemonsContext);
     let { currentID } = pokemons;
+    console.log(currentID)
     let { request: { data, loading, error } } = useAxios(`https://pokeapi.co/api/v2/pokemon/${currentID}`)
     if (data) {
+        console.log("DATA", data)
         pokemons.pokemon = data;
     };
 
