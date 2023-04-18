@@ -1,11 +1,11 @@
 export const generations = [
-    { name: "Gen I (KANTO)", value: "I" },
-    { name: "Gen II (JOHTO)", value: "II" },
-    { name: "Gen III (HOENN)", value: "III" },
-    { name: "Gen IV (SINNOH)", value: "IV" },
-    { name: "Gen V (UNOVA)", value: "V" },
-    { name: "Gen VI (KALOS)", value: "VI" },
-    { name: "Gen VII (ALOLA)", value: "VII" },
-    { name: "Gen VIII (GALAR)", value: "VIII" },
-    { name: "Gen IX (PALDEA)", value: "IX" }
+    { name: "Gen I (KANTO)", value: 1 },
+    { name: "Gen II (JOHTO)", value: 2 },
+    { name: "Gen III (HOENN)", value: 3 },
+    { name: "Gen IV (SINNOH)", value: 4 },
+    { name: "Gen V (UNOVA)", value: 5 },
+    { name: "Gen VI (KALOS)", value: 6 },
+    { name: "Gen VII (ALOLA)", value: 7 },
+    { name: "Gen VIII (GALAR)", value: 8 },
+    { name: "Gen IX (PALDEA)", value: 9 }
 ];
