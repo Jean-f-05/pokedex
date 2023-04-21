@@ -13,6 +13,7 @@ ${({ theme }) => css`
     color:${theme.colors.pokemonRed};
     font-size: 2.5rem;
     font-weight: 500;
+    text-align: center;
 `}
 `
 

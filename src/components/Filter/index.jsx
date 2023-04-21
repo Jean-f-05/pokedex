@@ -2,9 +2,11 @@ import { useState } from 'react';
 import * as S from "./styles";
 import { PlusOutline, MinusOutline } from "@styled-icons/evaicons-outline";
 
-const FilterEl = ({ setField, radio, name }) => {
+const FilterEl = ({ setField, radio, name, toggleFilter }) => {
     const handleFormChange = (evt) => {
-        setField({ id: evt.target.value, name: evt.target.name })
+        setField({ id: evt.target.value, name: evt.target.name });
+        toggleFilter()
+
     }
     return (
         <>
@@ -39,7 +41,7 @@ const Filter = ({ value, text, radio }) => {
                     <PlusOutline size={24} color="white" />}
             </S.FilterHeader>
             {<S.FilterBody active={isOpen} >
-                <FilterEl setField={value} radio={radio} name={text} />
+                <FilterEl setField={value} radio={radio} name={text} toggleFilter={toggleFilter} />
             </S.FilterBody>}
         </S.FilterWrapper >
     )
