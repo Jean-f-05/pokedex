@@ -20,10 +20,10 @@ export const sortByNumber = (data) => {
 }
 
 export const filterItems = (arr, query) => {
-    console.log("arr", arr);
-    console.log("query", query)
     return arr.filter((el) => {
-        console.log(el)
+        if (!isNaN(query)) {
+            return getId(el.url).includes(query)
+        }
         return el.name.toLowerCase().includes(query.toLowerCase())
     });
 }
