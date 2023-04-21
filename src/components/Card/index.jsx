@@ -6,7 +6,7 @@ const Card = ({ pokeUrl, pokeName, setModal }) => {
 
     return (
         <S.CardElement key={id} onClick={() => { setModal(id) }}>
-            <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`} alt={pokeName} />
+            <S.CardImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`} alt={pokeName} />
             {<S.CardNumber>{stdNumber(id)}</S.CardNumber>}
             <S.CardName>{pokeName}</S.CardName>
             <S.AnchorWrapper >
