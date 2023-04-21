@@ -6,7 +6,7 @@ export const FilterWrapper = styled.div`
     margin-top: 1rem;
     position: absolute;
     z-index: 8;
-
+    min-width: 14.5rem;
     @media (max-width: 600px) {
         position: unset;
   }
@@ -18,7 +18,7 @@ ${({ theme }) => css`
     flex-direction:row;
     align-items: center;  
     cursor: pointer;  
-    gap: 1.5rem;
+    justify-content: space-between;
     background-color: ${theme.colors.pokemonRed};
     border: 2px solid ${theme.colors.pokemonRed};
     padding: 0 0.5rem;
