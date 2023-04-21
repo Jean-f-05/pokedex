@@ -8,6 +8,7 @@ const SearchBar = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        console.log(pokemons)
         pokemons.setPokemonName(evt.target.pokemon.value)
     };
 

@@ -20,5 +20,10 @@ export const sortByNumber = (data) => {
 }
 
 export const filterItems = (arr, query) => {
-    return arr.filter((el) => el.name.toLowerCase().includes(query.toLowerCase()));
+    console.log("arr", arr);
+    console.log("query", query)
+    return arr.filter((el) => {
+        console.log(el)
+        return el.name.toLowerCase().includes(query.toLowerCase())
+    });
 }

@@ -22,11 +22,9 @@ export const useAxios = (customUrl) => {
                     setData(newPokemons)
                 }
                 if (response.data.species) {
-                    console.log("RESPONSE", response.data)
                     setData(response.data)
                 }
             } catch (error) {
-                console.log(error)
                 setError(error);
                 return
             } finally {
