@@ -33,6 +33,10 @@ ${() => css`
     border-radius: 0.5rem;
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &:hover{
     ${ChevronRight}{
