@@ -12,9 +12,8 @@ export const Wrapper = styled.div`
         padding: 2rem;
         display: flex;  
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: space-evenly;
         row-gap: 1.5rem;
-        counter-reset: number;
         position: relative;
        
 `}`;

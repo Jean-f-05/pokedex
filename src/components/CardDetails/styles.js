@@ -71,12 +71,13 @@ export const CardList = styled.div`
 `
 
 export const CardListHeader = styled.h2`
+   ${({ theme }) => css`
+    font-size: ${theme.fontSizes.xsmall}; 
+    font-weight: ${theme.fontWeight.xlbold};
     text-transform: uppercase;
-    font-size: 1.2rem;
-    font-weight: 800;
-    
     white-space: nowrap;
-`
+`}
+`;
 
 export const CardListDetail = styled.h2`
   text-transform: uppercase;

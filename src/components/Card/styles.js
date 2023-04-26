@@ -51,23 +51,27 @@ ${() => css`
 
 
 export const CardName = styled.h3`
-    font-size: 1.8rem;
+    ${({ theme }) => css`
+    font-size: ${theme.fontSizes.xmedium}; 
     margin-top: 0.5rem;
     text-transform: capitalize;
-`
+    `};
+    `
 export const CardNumber = styled.h4`
-    font-size: 1.2rem;
-    font-weight: 600;
+     ${({ theme }) => css`
+    font-size: ${theme.fontSizes.xsmall}; 
+    font-weight: ${theme.fontWeight.bold};
     position: absolute;
-    top:0.5rem;
+    top: 0.5rem;
     left: 0.5rem;
+    `}
    `;
 
 
 export const Anchor = styled.div`
     ${({ theme }) => css`
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: ${theme.fontSizes.small}; 
+    font-weight: ${theme.fontWeight.bold};
     text-decoration: none;
     color:${theme.colors.pokemonBlue}; 
     &:hover{

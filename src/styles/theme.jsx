@@ -12,9 +12,18 @@ const theme = {
     },
     fonts: ["sans-serif", "Roboto"],
     fontSizes: {
-        small: "1em",
-        medium: "2em",
-        large: "3em"
+        xsmall: "1.2rem",
+        small: "1.4rem",
+        xmedium: "1.8rem",
+        medium: "2rem",
+        large: "2.2rem",
+        xlarge: "4rem"
+    },
+    fontWeight: {
+        regular: 500,
+        bold: 600,
+        xbold: 700,
+        xlbold: 800
     }
 
 };

@@ -28,8 +28,8 @@ ${({ theme }) => css`
 
 
 export const FilterText = styled.h3`
-${({ theme }) => css`
-    font-size: 1.4rem;
+ ${({ theme }) => css`
+    font-size: ${theme.fontSizes.small}; 
     display: inline-block;    
     color: ${theme.colors.pokemonWhite};
 `}
@@ -59,9 +59,9 @@ justify-content: space-between;
 `;
 
 export const Label = styled.label`
-${({ theme }) => css`
-    font-size:1.3rem;
-    font-weight: 500;
+ ${({ theme }) => css`
+    font-size: ${theme.fontSizes.small}; 
+    font-weight: ${theme.fontWeight.regular};
     color:${theme.colors.pokemonRed};
 `}
 `

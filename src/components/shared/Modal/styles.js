@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CloseOutline } from "@styled-icons/evaicons-outline/";
 
 export const BackdropWrapper = styled.div`
@@ -30,9 +30,11 @@ export const CloseButton = styled(CloseOutline)`
 `
 
 export const ModalHeader = styled.h1`
-    font-size: 2.2rem;
+    ${({ theme }) => css`
+    font-size: ${theme.fontSizes.large}; 
     margin-top: 2.2rem;
     text-align: center;
+    `}
 `
 
 export const ModalImage = styled.img`
