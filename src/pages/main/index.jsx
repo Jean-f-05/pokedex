@@ -3,7 +3,6 @@ import SearchBar from '../../components/SearchBar';
 import Table from '../../components/Table';
 import { useAxios } from '../../components/Hooks/useAxios';
 import { createContext, useState } from 'react';
-import { sortByNumber } from "../../utils/index"
 import Filter from '../../components/Filter';
 import { generations } from "./generations";
 import { types } from "./types";
@@ -15,9 +14,6 @@ const Main = () => {
     const url = `https://pokeapi.co/api/v2/${field.name}/${field.id}`
     let { request } = useAxios(url);
 
-    if (request.data) {
-        sortByNumber(request.data);
-    };
 
     return (
         <S.Wrapper>

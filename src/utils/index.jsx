@@ -19,6 +19,10 @@ export const sortByNumber = (data) => {
     return data.sort((a, b) => getId(a.url) - getId(b.url));
 }
 
+export const sortDescByNumber = (data) => {
+    return data.sort((a, b) => getId(b.url) - getId(a.url));
+}
+
 export const filterItems = (arr, query) => {
     return arr.filter((el) => {
         if (!isNaN(query)) {

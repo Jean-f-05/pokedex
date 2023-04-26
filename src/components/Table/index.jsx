@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { PokemonsContext } from "../../pages/main/index";
 import CardDetails from '../CardDetails';
 import { filterItems } from "../../utils/index";
-
+import { sortDescByNumber, sortByNumber } from '../../utils/index';
 
 const Table = () => {
     let pokemons = useContext(PokemonsContext);
@@ -16,14 +16,29 @@ const Table = () => {
         setShowModal(!showModal);
         pokemons.currentID = id;
     };
+    const [sort, setSort] = useState("DESC")
 
     if (data && pokemonName) {
         const filteredItems = filterItems(data, pokemonName);
         data = filteredItems;
     };
+    if (data && sort) {
+        if (sort === "DESC") {
+            data = sortByNumber(data)
+
+        }
+        if (sort === "ASC") {
+            data = sortDescByNumber(data)
+        }
+
+    }
 
     return (
         <S.Wrapper>
+            <S.SortWrapper>
+                <S.AscendingSort onClick={() => setSort("DESC")}></S.AscendingSort>
+                <S.DescendingSort onClick={() => setSort("ASC")}></S.DescendingSort>
+            </S.SortWrapper>
             {loading ? <Loader /> :
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
                     (!data || data.length === 0 ? <Error errorMsg={"Sorry, can't find that pokemon..."} /> :

@@ -16,7 +16,6 @@ ${({ theme }) => css`
     background: url(${backgroundImg});
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-        
 `}
 `
 
