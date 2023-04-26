@@ -25,19 +25,17 @@ const Table = () => {
     if (data && sort) {
         if (sort === "DESC") {
             data = sortByNumber(data)
-
         }
         if (sort === "ASC") {
             data = sortDescByNumber(data)
         }
-
     }
 
     return (
         <S.Wrapper>
             <S.SortWrapper>
-                <S.AscendingSort onClick={() => setSort("DESC")}></S.AscendingSort>
-                <S.DescendingSort onClick={() => setSort("ASC")}></S.DescendingSort>
+                <S.AscendingSort onClick={() => setSort("DESC")} isInactive={sort}></S.AscendingSort>
+                <S.DescendingSort onClick={() => setSort("ASC")} isInactive={sort}></S.DescendingSort>
             </S.SortWrapper>
             {loading ? <Loader /> :
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
