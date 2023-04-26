@@ -36,7 +36,7 @@ const CardDetails = ({ setModal }) => {
 
                             <S.CardContent>
                                 <S.CardMain>
-                                    <S.CardHeader>{pokemons.pokemon.name}</S.CardHeader>
+                                    <S.CardHeader color={pokemons.pokemon.types[0].type.name}>{pokemons.pokemon.name}</S.CardHeader>
                                     <S.CardImage src={pokemons.pokemon.sprites.other.dream_world.front_default ? pokemons.pokemon.sprites.other.dream_world.front_default : pokemons.pokemon.sprites.other.home.front_default ? pokemons.pokemon.sprites.other.home.front_default : pokemons.pokemon.sprites.other["official-artwork"].front_default} alt={pokemons.pokemon.name} />
                                 </S.CardMain>
                                 <S.CardDetails>

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const borderColors = {
+export const pokeColors = {
     normal: () => css`
     #A8A77A;
     `,

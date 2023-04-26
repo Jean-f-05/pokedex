@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import { CloseOutline } from "@styled-icons/evaicons-outline/";
-import { borderColors } from './borderColors';
+import { pokeColors } from './pokeColors';
 
 
 export const Wrapper = styled.div`
 ${({ theme, border }) => css`
     background-color: #fff;
     padding: 2.8rem 1rem;
-    border: inset 0.8rem ${border && borderColors[border]}
+    border: inset 0.8rem ${border && pokeColors[border]}
 `}
 `;
 
@@ -29,9 +29,12 @@ export const CloseOutlineIcon = styled(CloseOutline)`
 `;
 
 export const CardHeader = styled.h1`
-    text-transform: uppercase;
-    margin-bottom: 1.8rem;
-    text-align:center;
+    ${({ color }) => css`
+        text-transform: uppercase;
+        margin-bottom: 1.8rem;
+        text-align:center;
+        color: ${color && pokeColors[color]};
+`}
 `;
 
 export const CardContent = styled.div`

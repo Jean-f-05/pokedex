@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { borderColors } from '../CardDetails/borderColors';
+import { pokeColors } from '../CardDetails/pokeColors';
 
 const barConfig = {
     hp: (value) => css`        
@@ -42,7 +42,7 @@ ${({ description, value, color }) => css`
     left: 0;
     height: 100%;
 
-    background-color: ${color && borderColors[color]};
+    background-color: ${color && pokeColors[color]};
     border-radius: 15px;
 
     ${description && barConfig[description](value)};
