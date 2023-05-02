@@ -14,12 +14,24 @@ const FilterEl = ({ setField, radio, name, toggleFilter }) => {
                 {radio &&
                     radio.map((el, i) => {
                         return (
-                            <S.FilterInput key={`${el.name}`}>
-                                <S.Label htmlFor={el.name}>{el.name.toUpperCase()}</S.Label>
-                                <input defaultChecked={el.name === "Gen I (KANTO)"} type="radio" id={el.name} name={name} value={el.value} onChange={handleFormChange} />
-                            </S.FilterInput>)
+                            <S.FilterInputLi key={`${el.name}`}>
+                                <S.Label htmlFor={el.name}>
+                                    <S.Input
+                                        class="rad-input"
+                                        defaultChecked={el.name === "Gen I (KANTO)"}
+                                        type="radio"
+                                        id={el.name}
+                                        name={name}
+                                        value={el.value}
+                                        onChange={handleFormChange} />
+                                    <S.RadDesign></S.RadDesign>
+                                    <S.RadText>{el.name.toUpperCase()}</S.RadText>
+                                </S.Label>
+                            </S.FilterInputLi>
+                        )
                     })
                 }
+
             </S.FilterRadioWrapper >
         </>)
 };
