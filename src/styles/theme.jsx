@@ -18,7 +18,8 @@ const theme = {
         xmedium: "1.8rem",
         medium: "2rem",
         large: "2.2rem",
-        xlarge: "4rem"
+        xlarge: "4rem",
+        humungus: "5rem"
     },
     fontWeight: {
         regular: 500,

@@ -20,7 +20,7 @@ export const ListWrapper = styled.div`
 
 export const Navheader = styled.h1`
 ${({ theme }) => css`
-    font-size: ${theme.fontSizes.xlarge};
+    font-size: ${theme.fontSizes.humungus};
 `}`;
 
 
