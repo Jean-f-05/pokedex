@@ -34,8 +34,13 @@ const Table = () => {
     return (
         <S.Wrapper>
             <S.SortWrapper>
-                <S.AscendingSort onClick={() => setSort("DESC")} isInactive={sort}></S.AscendingSort>
-                <S.DescendingSort onClick={() => setSort("ASC")} isInactive={sort}></S.DescendingSort>
+                {
+                    !loading && <>
+                        <S.AscendingSort onClick={() => setSort("DESC")} isInactive={sort}></S.AscendingSort>
+                        <S.DescendingSort onClick={() => setSort("ASC")} isInactive={sort}></S.DescendingSort>
+                    </>
+                }
+
             </S.SortWrapper>
             {loading ? <Loader /> :
                 (error ? <Error errorMsg={"Ups, something went wrong..."} /> :
